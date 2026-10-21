@@ -1,0 +1,140 @@
+{
+  "version": "0.34",
+  "schema": 34,
+  "generatedFrom": "Current local Surface3D docs and build-023 native registry",
+  "nodeCount": 236,
+  "registeredNodeCount": 235,
+  "sourceOnlyCount": 1,
+  "searchableNodeCount": 218,
+  "parameterCount": 669,
+  "articles": [
+    {
+      "id": "guide-getting-started",
+      "title": "Getting started",
+      "path": "data/documentation/sources/guide-getting-started.md",
+      "category": "Start here",
+      "version": "Current",
+      "status": "User guide"
+    },
+    {
+      "id": "guide-workspaces",
+      "title": "Workspaces",
+      "path": "data/documentation/sources/guide-workspaces.md",
+      "category": "Start here",
+      "version": "Current",
+      "status": "User guide"
+    },
+    {
+      "id": "guide-layers-and-masks",
+      "title": "Layers and masks",
+      "path": "data/documentation/sources/guide-layers-and-masks.md",
+      "category": "Start here",
+      "version": "Current",
+      "status": "User guide"
+    },
+    {
+      "id": "guide-teach-mode",
+      "title": "Weathering and teach mode",
+      "path": "data/documentation/sources/guide-teach-mode.md",
+      "category": "Start here",
+      "version": "Current",
+      "status": "User guide"
+    },
+    {
+      "id": "guide-shortcuts",
+      "title": "Keyboard shortcuts",
+      "path": "data/documentation/sources/guide-shortcuts.md",
+      "category": "Start here",
+      "version": "Current",
+      "status": "User guide"
+    },
+    {
+      "id": "workflow-start-a-project",
+      "title": "Start a project",
+      "path": "data/documentation/sources/workflow-start-a-project.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    },
+    {
+      "id": "workflow-layers-channels-and-opacity",
+      "title": "Layers, channels and opacity",
+      "path": "data/documentation/sources/workflow-layers-channels-and-opacity.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    },
+    {
+      "id": "workflow-brushes-paint-nodes-and-stencils",
+      "title": "Brushes, Paint nodes and stencils",
+      "path": "data/documentation/sources/workflow-brushes-paint-nodes-and-stencils.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    },
+    {
+      "id": "workflow-graph-editing-and-reusable-results",
+      "title": "Graph editing and reusable results",
+      "path": "data/documentation/sources/workflow-graph-editing-and-reusable-results.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    },
+    {
+      "id": "workflow-resolution-and-performance",
+      "title": "Resolution and performance",
+      "path": "data/documentation/sources/workflow-resolution-and-performance.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    },
+    {
+      "id": "workflow-coordinates-and-projection",
+      "title": "Coordinates and projection",
+      "path": "data/documentation/sources/workflow-coordinates-and-projection.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    },
+    {
+      "id": "workflow-baking-and-cleanup",
+      "title": "Baking and cleanup",
+      "path": "data/documentation/sources/workflow-baking-and-cleanup.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    },
+    {
+      "id": "workflow-uv-editing-and-model-iteration",
+      "title": "UV editing and model iteration",
+      "path": "data/documentation/sources/workflow-uv-editing-and-model-iteration.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    },
+    {
+      "id": "workflow-paths-vertex-data-and-samplers",
+      "title": "Paths, vertex data and samplers",
+      "path": "data/documentation/sources/workflow-paths-vertex-data-and-samplers.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    },
+    {
+      "id": "workflow-export-color-and-library",
+      "title": "Export, color and library",
+      "path": "data/documentation/sources/workflow-export-color-and-library.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    },
+    {
+      "id": "workflow-how-to-use-this-reference",
+      "title": "How to use this reference",
+      "path": "data/documentation/sources/workflow-how-to-use-this-reference.md",
+      "category": "Reference",
+      "version": "Handbook 0.34",
+      "status": "Some screens have changed since 0.34"
+    }
+  ]
+}

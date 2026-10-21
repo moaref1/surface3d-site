@@ -1,0 +1,39 @@
+:root{--bg:#171a1e;--panel:#21262c;--line:#343c44;--text:#e1e5e8;--muted:#acb5bf;--teal:#53bcb5;--paper:#e1e5e8;--accent:#d0aa72}
+body{background:var(--bg);color:var(--text)}
+.site-header{background:#191d22f5;border-color:#343c44}.nav-links a,.footer-links a{color:#b9c2cc}.nav-links a:hover,.nav-links a.active{color:#fff}
+.home-hero,.hero-workflow-art{background:#14191e}.hero-workflow-art:before{background:radial-gradient(ellipse at 50% 42%,#14191eef 0%,#14191ee0 25%,#14191e88 55%,#14191e22 78%)}
+.home-hero h1,.story-copy h3,.render-feature h3,.home-end h2,.page-hero h1{color:#edf0f3}.home-hero .lede{color:#bcc5cd}.home-hero h1 em{color:var(--teal)}
+.workflow-story,.sketch-story,.home-end,.site-footer{background:#171a1e}.story-panel,.render-feature,.feature-card,.feature-row,.doc-reader,.docs-sidebar{background:#20262c;border-color:#37414a;box-shadow:none}
+.story-copy p,.render-feature-head p,.home-end p,.page-hero p,.feature-card p{color:#b6c0ca}.story-tags span,.review-options span{color:#acb8c2;border-color:#3b4750;background:#262e35}.story-count{color:#68c2bd}
+.button.primary{background:var(--teal);color:#102126}.button.outline{color:#d8e0e5;border-color:#54616c}.button.primary:hover{background:#7fd1ca}
+.home-end{border-top:1px solid #343c44;padding:64px 0}.home-end-inner{text-align:left;max-width:1160px}.home-end h2{font-size:clamp(30px,4vw,44px);margin:0 0 12px;letter-spacing:-.035em}.home-end p{max-width:680px;margin:0}.home-end .actions{justify-content:flex-start;align-items:center}.home-end .text-link{font-size:15px}
+.site-footer{border-color:#343c44}.footer-bottom{border-color:#343c44;color:#98a5b0}.footer-brand p{color:#a9b4be}.workflow-nav a{color:#b6c0ca}.workflow-nav span{background:#3b454e}
+@media(max-width:800px){.hero-workflow-art:before{background:#14191ed9}.home-end{padding:44px 0}.home-end .actions{gap:16px}}
+
+/* Centered presentation with quiet, consistent frames. */
+.home-end-inner{text-align:center}.home-end p{margin-inline:auto}.home-end .actions{justify-content:center}
+.story-copy,.render-feature-head{text-align:center;margin-inline:auto}.story-tags,.review-options{justify-content:center}
+.story-panel,.render-feature{border:1px solid #ffffff12;border-radius:18px;box-shadow:0 12px 36px #00000018;background:#1c2228}
+.workflow-video,.export-scene{border:1px solid #ffffff16;border-radius:12px;overflow:hidden;background:#11161b}
+.workflow-video video{display:block;border-radius:0}.feature-card{border:1px solid #ffffff14;border-radius:14px}
+.story-panel:before,.story-panel:after{border-color:#ffffff0b}.story-tags span,.review-options span{border-color:transparent;background:#ffffff05;border-radius:6px}
+.home-end{border-top:1px solid #ffffff0d}.site-footer{border-top:1px solid #ffffff0d}.footer-bottom{border-color:#ffffff0b}
+.home-hero-copy .eyebrow{justify-content:center}
+/* Scroll stack: each video card slides over the previous layer. */
+.workflow-story.sketch-story{overflow:visible;isolation:isolate;padding-bottom:12vh}
+.workflow-story.sketch-story>.story-panel,.workflow-story.sketch-story>.render-feature{position:sticky;top:88px;margin:0 auto 22vh!important;width:100%;border:1px solid #64778555!important;border-radius:18px!important;background:#20262c!important;box-shadow:0 -12px 42px #0005!important;transform:none!important;opacity:1!important;gap:14px!important;padding:22px!important;display:flex!important;flex-direction:column!important}
+.workflow-story.sketch-story>.story-panel{z-index:2}.workflow-story.sketch-story>#story-graph{z-index:3}.workflow-story.sketch-story>#story-bake{z-index:4}.workflow-story.sketch-story>#story-uv{z-index:5}.workflow-story.sketch-story>#story-render{z-index:6}.workflow-story.sketch-story>#story-export{z-index:7;margin-bottom:0!important}
+.workflow-story.sketch-story .story-copy,.workflow-story.sketch-story .render-feature-head{order:0;padding:0!important;margin:0 auto!important;max-width:850px}
+.workflow-story.sketch-story .story-copy h3,.workflow-story.sketch-story .render-feature-head h3{font-size:clamp(28px,3vw,42px);margin:6px 0 8px}
+.workflow-story.sketch-story .story-copy p,.workflow-story.sketch-story .render-feature-head p{margin:0 auto;font-size:16px;line-height:1.5;max-width:740px}
+.workflow-story.sketch-story .story-tags,.workflow-story.sketch-story .review-options{display:none}
+.workflow-story.sketch-story .has-workflow-video{order:1;width:min(100%,calc((100dvh - 310px)*1.77778))!important;align-self:center;border-radius:12px;overflow:hidden}
+.workflow-story.sketch-story .story-count{font-size:11px}.workflow-nav{position:relative;z-index:8;margin-bottom:32px}
+@media(max-width:800px){.workflow-story.sketch-story{padding:24px 12px 10vh}.workflow-story.sketch-story>.story-panel,.workflow-story.sketch-story>.render-feature{top:78px;padding:16px!important;margin-bottom:16vh!important;border-radius:14px!important}.workflow-story.sketch-story .has-workflow-video{width:100%!important}.workflow-story.sketch-story .story-copy h3,.workflow-story.sketch-story .render-feature-head h3{font-size:28px}.workflow-story.sketch-story .story-copy p,.workflow-story.sketch-story .render-feature-head p{font-size:15px}}
+@media(max-height:550px) and (min-width:801px){.workflow-story.sketch-story>.story-panel,.workflow-story.sketch-story>.render-feature{position:relative;top:auto}.workflow-story.sketch-story .has-workflow-video{width:75%!important}}
+.workflow-story.sketch-story>.story-panel,.workflow-story.sketch-story>.render-feature{position:sticky!important;top:88px!important;z-index:2!important}
+.workflow-story.sketch-story>#story-graph{z-index:3!important}.workflow-story.sketch-story>#story-bake{z-index:4!important}.workflow-story.sketch-story>#story-uv{z-index:5!important}.workflow-story.sketch-story>#story-render{z-index:6!important}.workflow-story.sketch-story>#story-export{z-index:7!important}
+@media(max-width:800px){.workflow-story.sketch-story>.story-panel,.workflow-story.sketch-story>.render-feature{top:78px!important}}
+@media(max-height:550px) and (min-width:801px){.workflow-story.sketch-story>.story-panel,.workflow-story.sketch-story>.render-feature{position:relative!important;top:auto!important}}
+.workflow-story.sketch-story>.story-panel:before,.workflow-story.sketch-story>.render-feature:before{background:#252d35;border-color:#65758233;inset:7px 9px -8px;border-radius:16px}
+.workflow-story.sketch-story>.story-panel:after,.workflow-story.sketch-story>.render-feature:after{background:#29333d;border-color:#65758222;inset:14px 18px -16px;border-radius:16px}

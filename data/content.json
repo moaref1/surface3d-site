@@ -1,0 +1,369 @@
+{
+  "brand": "Surface3D",
+  "status": "Early development",
+  "announcement": "Independent 3D texturing · Windows x64 development preview",
+  "heroTitle": "Layers when you paint.\n*Procedural when you need it.*",
+  "heroLede": "Paint with layers. Build with nodes. Keep both in one material workflow.",
+  "heroNote": "One material. Two connected ways to create.",
+  "introTitle": "One workspace.\n*Two connected ways to work.*",
+  "introBody": "Paint and build materials with layers, then open the graph to shape and reuse the procedural logic behind them. Baking, UV checks and material review stay part of the same asset workflow.",
+  "downloadUrl": "https://github.com/moaref1/Surface3D/releases/latest",
+  "discordUrl": "https://discord.gg/K3YzGP72cg",
+  "donateUrl": "https://www.paypal.com/donate/?hosted_button_id=SFRZK6K2A957J",
+  "supportEmail": "pouyasaad@gmail.com",
+  "donateTitle": "Made by one developer, for artists",
+  "donateBody": "Surface3D is a solo project built around a simple goal: give artists an open, approachable alternative to expensive texturing tools. Support helps fund development time, testing, documentation and distribution.",
+  "theme": {
+    "background": "#171a1e",
+    "teal": "#53bcb5",
+    "accent": "#d0aa72",
+    "paper": "#e1e5e8"
+  },
+  "news": [
+    {
+      "category": "THE WORKSPACE",
+      "date": "A CLOSER LOOK",
+      "title": "Texture work, kept in flow",
+      "body": "Paint on the model, work with clear layers, and open the graph whenever you want deeper control.",
+      "url": "features.html"
+    },
+    {
+      "category": "MATERIAL STUDY",
+      "date": "MADE TO REUSE",
+      "title": "Build a surface once",
+      "body": "Shape procedural details into reusable outputs for the materials and layers in your project.",
+      "url": "showcase.html"
+    },
+    {
+      "category": "IN DEVELOPMENT",
+      "date": "FOLLOW ALONG",
+      "title": "A tool growing with artists",
+      "body": "Surface3D is evolving around practical texturing workflows, clear controls, and reliable output.",
+      "url": "support.html"
+    }
+  ],
+  "navigation": [
+    {
+      "label": "Home",
+      "url": "index.html"
+    },
+    {
+      "label": "Features",
+      "url": "features.html"
+    },
+    {
+      "label": "Showcase",
+      "url": "showcase.html"
+    },
+    {
+      "label": "Tutorials",
+      "url": "tutorials.html"
+    },
+    {
+      "label": "Documentation",
+      "url": "docs.html"
+    },
+    {
+      "label": "Info",
+      "url": "about.html"
+    },
+    {
+      "label": "Pricing",
+      "url": "pricing.html"
+    },
+    {
+      "label": "Donate",
+      "url": "support.html"
+    }
+  ],
+  "features": [
+    {
+      "title": "Layer-based materials",
+      "category": "Painting & layers",
+      "status": "available",
+      "body": "Build a surface with fill layers, painted details, masks and folders, while keeping each part editable.",
+      "points": "Fill and paint layers\nMasks, blend modes and channel opacity\nFolders and pass-through composition",
+      "statusDetail": "",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "assets/videos/layers.mp4",
+      "image": "assets/videos/layers.webp",
+      "visibility": "visible"
+    },
+    {
+      "title": "Teach masks",
+      "category": "Smart masks & weathering",
+      "status": "available",
+      "body": "Paint where an effect should go and where it should not. Surface3D learns the rule and fills the whole model.",
+      "points": "Left: here, right: not here, with a live mask\nLearns 25 things: edges, cavities, water flow, metal, wood grain…\nReadable rule you can adjust with sliders\nGrunge look learned from how you paint",
+      "statusDetail": "",
+      "videoTitle": "",
+      "videoUrl": "",
+      "image": "assets/img/teach-0.70.png",
+      "visibility": "visible"
+    },
+    {
+      "title": "Physical weathering",
+      "category": "Smart masks & weathering",
+      "status": "available",
+      "body": "Rust, moss, dirt, dust and leak stains computed from how they form on this model: rain, sky, edges and gravity.",
+      "points": "Five templates, no bakes needed\nAge, amount and climate controls\n\"See why\" shows the measurement behind it",
+      "statusDetail": "",
+      "videoTitle": "",
+      "videoUrl": "",
+      "image": "assets/img/weathering-0.67-templates.png",
+      "visibility": "visible"
+    },
+    {
+      "title": "Sculpting",
+      "category": "Painting & layers",
+      "status": "available",
+      "body": "Dent, fold, carve and inflate the surface in a live Sculpt layer. Smart masks and edge damage follow your sculpt.",
+      "points": "Clay, crease, pinch, flatten, scrape and more\nHeight and normal detail in one undo step\nBake + Sculpt for masks that react to it",
+      "statusDetail": "",
+      "videoTitle": "",
+      "videoUrl": "",
+      "image": "",
+      "visibility": "visible"
+    },
+    {
+      "title": "Edge damage",
+      "category": "Smart masks & weathering",
+      "status": "available",
+      "body": "Chips and dents along real mesh edges and bevels, baked into the normal map and updated live.",
+      "points": "Works on bevels and real meshes\nPick which edges get damaged\nFeeds smart masks like a high-poly bake",
+      "statusDetail": "",
+      "videoTitle": "",
+      "videoUrl": "",
+      "image": "",
+      "visibility": "visible"
+    },
+    {
+      "title": "Brush engine and paint tools",
+      "category": "Painting & layers",
+      "status": "available",
+      "body": "A full painting toolset with 2K and 4K layers that stay responsive.",
+      "points": "Brush, eraser, smudge, clone, fill, mask brush, decals\nPen pressure, symmetry, smoothing, stencils\nSplines and particles on the model",
+      "statusDetail": "",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "assets/videos/layers.mp4",
+      "image": "assets/videos/layers.webp",
+      "visibility": "visible"
+    },
+    {
+      "title": "Procedural materials, connected to your layers",
+      "category": "Material creation",
+      "status": "available",
+      "body": "Use a graph for the parts that benefit from procedural control, then combine the result with your painted material.",
+      "points": "Connect generators, maps and filters\nReuse results with live anchors\nMix hand-painted and procedural detail",
+      "statusDetail": "",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "assets/videos/graphs.mp4",
+      "image": "assets/videos/graphs.webp",
+      "visibility": "visible"
+    },
+    {
+      "title": "Tileable materials from photographs",
+      "category": "Material creation",
+      "status": "available",
+      "body": "Turn a photograph into a starting point for a repeating material, then refine the seams and surface channels.",
+      "points": "Offset and tileability tools\nSeam cleanup with paint and cloning\nCreate and adjust material maps",
+      "statusDetail": "Results depend on the source photo and cleanup.",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "",
+      "image": "",
+      "visibility": "visible"
+    },
+    {
+      "title": "Tileable patterns",
+      "category": "Material creation",
+      "status": "available",
+      "body": "Build repeating surfaces with shapes, noises, samplers and splatters.",
+      "points": "Tiles, repeated shapes and distributions\nControl scale, rotation and variation\nCombine patterns into reusable materials",
+      "statusDetail": "",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "",
+      "image": "",
+      "visibility": "visible"
+    },
+    {
+      "title": "High-poly to low-poly baking",
+      "category": "Baking & mesh",
+      "status": "available",
+      "body": "Transfer surface detail from a detailed model onto the mesh you want to texture.",
+      "points": "Low/high mesh setup and projection cages\nNormal, occlusion and curvature maps\nSelective mesh-map baking",
+      "statusDetail": "Engine availability depends on your hardware.",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "assets/videos/baking.mp4",
+      "image": "assets/videos/baking.webp",
+      "visibility": "visible"
+    },
+    {
+      "title": "Vertex colors in materials",
+      "category": "Material creation",
+      "status": "available",
+      "body": "Use color data stored on your mesh to drive masks, material variation and procedural effects.",
+      "points": "Read mesh vertex-color data\nUse channels to guide a mask\nCombine vertex colors with textures and graphs",
+      "statusDetail": "Requires a mesh containing vertex colors.",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "",
+      "image": "",
+      "visibility": "visible"
+    },
+    {
+      "title": "Paint inside a graph",
+      "category": "Painting & layers",
+      "status": "available",
+      "body": "Add hand-authored marks and cleanup directly into a procedural texture workflow.",
+      "points": "Paint-node results\nClone-based texture cleanup\nCombine strokes with filters and generators",
+      "statusDetail": "",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "",
+      "image": "",
+      "visibility": "visible"
+    },
+    {
+      "title": "Stencil-guided painting",
+      "category": "Painting & layers",
+      "status": "available",
+      "body": "Use a camera-facing texture overlay to place and paint details with more control.",
+      "points": "Image stencil and opacity\nPlacement controls\nLevels and inversion",
+      "statusDetail": "",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "",
+      "image": "",
+      "visibility": "visible"
+    },
+    {
+      "title": "UVs and projection",
+      "category": "Baking & mesh",
+      "status": "available",
+      "body": "A dedicated UV workspace: inspect islands, unwrap, and pack them tightly so less texture is wasted.",
+      "points": "UV inspection, unwrap and transform\nSmarter automatic packing\nTriplanar and other projection modes",
+      "statusDetail": "",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "assets/videos/uv.mp4",
+      "image": "assets/videos/uv.webp",
+      "visibility": "visible"
+    },
+    {
+      "title": "Reusable materials and texture outputs",
+      "category": "Workflow & export",
+      "status": "available",
+      "body": "Keep useful results in your library and share graph outputs between parts of a project.",
+      "points": "Named live texture outputs\nMaterial and graph assets\nReusable masks and patterns",
+      "statusDetail": "",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "",
+      "image": "",
+      "visibility": "visible"
+    },
+    {
+      "title": "Export for your 3D workflow",
+      "category": "Workflow & export",
+      "status": "available",
+      "body": "Take your finished texture maps into any 3D software that supports standard PBR textures.",
+      "points": "Export selected texture channels\nChoose output resolution\nKeep color and data maps distinct",
+      "statusDetail": "",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "assets/videos/export.mp4",
+      "image": "assets/videos/export.webp",
+      "visibility": "visible"
+    },
+    {
+      "title": "Material review",
+      "category": "Workflow & export",
+      "status": "available",
+      "body": "Review your asset with lighting and camera controls before exporting it.",
+      "points": "HDRI environments\nTurntable review\nPost-processing controls",
+      "statusDetail": "",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "assets/videos/overview.mp4",
+      "image": "assets/videos/overview.webp",
+      "visibility": "visible"
+    },
+    {
+      "title": "Faster high-resolution iteration",
+      "category": "Workflow & export",
+      "status": "in-development",
+      "body": "Reduce pauses when editing layers and complex graphs at higher texture resolutions.",
+      "points": "Smarter result reuse\nMore targeted updates\nOngoing CPU and GPU optimization",
+      "statusDetail": "2K and 4K painting is fast since 0.48; work on large graphs continues.",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "",
+      "image": "",
+      "visibility": "visible"
+    },
+    {
+      "title": "A broader artist asset library",
+      "category": "Material creation",
+      "status": "planned",
+      "body": "Grow the collection of editable patterns, masks, filters and material starting points.",
+      "points": "Organized by practical use\nExposed controls\nReady to use in layers or graphs",
+      "statusDetail": "Future additions; no release date is promised.",
+      "videoTitle": "Watch the workflow",
+      "videoUrl": "",
+      "image": "",
+      "visibility": "visible"
+    }
+  ],
+  "showcase": [],
+  "tutorials": [
+    {
+      "title": "Build a readable layer stack",
+      "body": "A short written guide to fills, paint layers, masks and channel blending.",
+      "type": "article",
+      "url": ""
+    },
+    {
+      "title": "Create a reusable procedural surface",
+      "body": "A video walkthrough of building a pattern and reusing its graph output.",
+      "type": "video",
+      "url": ""
+    },
+    {
+      "title": "Bake maps for a hard-surface prop",
+      "body": "A practical guide to projection distance, cage setup and map review.",
+      "type": "article",
+      "url": ""
+    }
+  ],
+  "homepage": {
+    "layerTitle": "Layer based.",
+    "layerBody": "Build materials with fills, paint, masks and effects.",
+    "graphTitle": "Procedural.",
+    "graphBody": "Connect textures, mesh maps and generators. Reuse the result in your layers.",
+    "bakeTitle": "Baking.",
+    "bakeBody": "Capture surface detail from your mesh. Check normals, curvature and occlusion directly on the object.",
+    "uvTitle": "UV editing.",
+    "uvBody": "Inspect your islands, make a quick transform, unwrap and pack. Keep texture placement clear before the final material pass.",
+    "renderTitle": "Rendering.",
+    "renderBody": "Check your materials under HDRI lighting. Export standard PBR maps for your 3D workflow.",
+    "renderVideo": "assets/videos/rendering.mp4",
+    "heroVideo": "",
+    "layerVideo": "assets/videos/layers.mp4",
+    "graphVideo": "assets/videos/graphs.mp4",
+    "bakeVideo": "assets/videos/baking.mp4",
+    "uvVideo": "assets/videos/uv.mp4",
+    "aboutTitle": "One developer. A connected material workspace.",
+    "aboutGoal": "Make capable 3D texturing accessible to every artist: familiar layers when you paint, procedural control when you need it, and smart tools that understand the model.",
+    "aboutBuild": "A native Windows application with its own GPU renderer, so painting, sculpting and masks stay fast at 2K and 4K.",
+    "aboutDevelopment": "Surface3D is developed independently, with frequent releases shaped by artist feedback on Discord. Every release is listed with its changes on GitHub.",
+    "aboutExperience": "Surface3D grew out of my own work texturing environments and props. It brings together the tools and workflows I wanted while making those assets.",
+    "aboutAI": "Surface3D is built with the help of AI agents. I guide the product using my experience in 3D environment and prop texturing; AI agents help write, debug and improve the code. If you prefer not to use or support software built with AI agents, please take that into account before downloading or supporting the project.",
+    "aboutOriginality": "Surface3D is an original, independently developed project. It is not decompiled or reverse-engineered software, and it is not a clone. It brings layer-based painting and procedural material creation together in a new workflow.",
+    "exportVideo": "assets/videos/export.mp4",
+    "aboutIntro": "A native texturing app for painting, sculpting, smart weathering and procedural materials, made by a 3D artist for artists. Free for Windows."
+  },
+  "pageEdits": {},
+  "pageLayouts": {},
+  "documentation": {
+    "overrides": {}
+  },
+  "bugReportUrl": "https://discord.gg/K3YzGP72cg",
+  "contactHandle": "",
+  "contactUrl": "",
+  "releasesUrl": "https://github.com/moaref1/Surface3D/releases",
+  "repositoryUrl": "https://github.com/moaref1/Surface3D",
+  "featureTitle": "From the first stroke to the finished material.",
+  "featureIntro": "Everything below is in the current build unless marked. Surface3D is in active development and gets a new release every few days."
+}

@@ -1,0 +1,31 @@
+/* Polish pass: loaded last, only refines the existing design. */
+
+/* Hero animation */
+.right-paint-scene{opacity:.78;filter:drop-shadow(0 0 40px rgba(69,214,181,.18))}
+.paint-grain{opacity:.32!important}
+.moving-brush{filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+.left-node-scene{opacity:.9}
+.enter-node rect{fill:#18241f;stroke:#3fbf9f;filter:drop-shadow(0 0 14px rgba(63,191,159,.22))}
+.enter-node>path:not(.node-texture){stroke:#2f7c69}
+.enter-node text{font-family:ui-monospace,"Cascadia Code",Consolas,monospace;font-weight:600}
+.left-wire{stroke:#5fe0bf;stroke-width:2.4;filter:drop-shadow(0 0 6px rgba(95,224,191,.55))}
+.home-hero h1 em{background:linear-gradient(90deg,#3fc7a6,#7fe8cd 55%,#3fc7a6);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Hero buttons: Download is the main action */
+.home-hero .actions{gap:12px}
+.home-hero .hero-download{display:inline-flex;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(63,199,166,.28);transition:transform .15s,box-shadow .15s}
+.home-hero .hero-download:hover{transform:translateY(-1px);box-shadow:0 12px 38px rgba(63,199,166,.4)}
+
+/* Donate: warm, clear, with a heart */
+.nav-links a.nav-donate,.nav-links a[href*="paypal.com/donate"]{
+  background:linear-gradient(180deg,#f0c27f,#e0a85e)!important;color:#2a1d0c!important;
+  border-radius:8px;padding:9px 15px 9px 13px;font-weight:700;
+  box-shadow:0 4px 18px rgba(224,168,94,.25);transition:transform .15s,box-shadow .15s}
+.nav-links a.nav-donate:before,.nav-links a[href*="paypal.com/donate"]:before{content:"\2665";margin-right:7px;color:#b2402e}
+.nav-links a.nav-donate:hover,.nav-links a[href*="paypal.com/donate"]:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(224,168,94,.4);text-decoration:none}
+
+/* Download page card */
+.download-card .release-label{color:#5fe0bf;letter-spacing:.12em}
+.download-card .button.primary{box-shadow:0 8px 30px rgba(63,199,166,.28)}
+
+@media (prefers-reduced-motion:reduce){.left-wire,.enter-node rect{filter:none}}

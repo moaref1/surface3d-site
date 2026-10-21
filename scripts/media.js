@@ -1,0 +1,6 @@
+(function(){
+ let connection;const urls=new Map();
+ function db(){if(!connection)connection=new Promise((resolve,reject)=>{const req=indexedDB.open('surface3d-website-media',1);req.onupgradeneeded=()=>req.result.createObjectStore('assets',{keyPath:'path'});req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)});return connection}
+ async function operation(mode,fn){const database=await db();return new Promise((resolve,reject)=>{const tx=database.transaction('assets',mode),request=fn(tx.objectStore('assets'));request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)})}
+ window.SiteMedia={async put(file){if(!/^(image|video)\//.test(file.type))throw Error('Choose an image or video file.');const name=file.name.replace(/[^a-zA-Z0-9._-]/g,'-'),path='assets/user/'+crypto.randomUUID().slice(0,8)+'-'+name;await operation('readwrite',s=>s.put({path,blob:file,type:file.type}));return {src:path,type:file.type.startsWith('video/')?'video':'image',alt:file.name}},async list(){return await operation('readonly',s=>s.getAll())},async resolve(path){if(!path?.startsWith('assets/user/'))return path;if(urls.has(path))return urls.get(path);try{const item=await operation('readonly',s=>s.get(path));if(item){const url=URL.createObjectURL(item.blob);urls.set(path,url);return url}}catch{}return path}};
+})();
