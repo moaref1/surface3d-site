@@ -19,7 +19,7 @@ circle.y{fill:#e0ad3f}circle.w{fill:#d9dbde}circle.b{fill:#5b9bdc}circle.v{fill:
 circle.y,circle.w,circle.b,circle.v{stroke:#17191c}
 
 @media(max-width:800px){
- .hero-graph{left:-3%;width:66%;top:76%}
- .hero-ball{right:-42%;width:120%;top:24%}
+ .hero-graph{left:-3%;width:66%;top:76%;opacity:.45}
+ .hero-ball{right:-22%;width:90%;top:20%}
  .hero-stage:after{background:#101a15c4}
 }

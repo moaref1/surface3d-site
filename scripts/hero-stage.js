@@ -1,142 +1,181 @@
-// Paints a material ball with a real stamped brush, on the same 16s clock as the graph animation.
+// Home hero. The ball is painted from the first frame and the loop never resets: each colour from the
+// graph's Color node is brushed over the last one, so there is no empty start and no jump.
 (function () {
   var canvas = document.getElementById('hero-paint'), hero = document.querySelector('.home-hero');
   if (!canvas || !hero) return;
-  var W = 640, H = 400, CX = 320, CY = 200, R = 150, LOOP = 16000;
-  var START = 4000, END = 12000, FADE_FROM = 13800, FADE_TO = 15400; // ms in the loop
-  var PASSES = 7, SPACING = 5, BRUSH = 54;
+  var W = 640, H = 400, CX = 320, CY = 200, R = 150, BRUSH = 50, PASSES = 7, SPACING = 5;
+  var STROKE_MS = 6500, REST_MS = 1300;
+  var COLORS = [
+    { rgb: [63, 199, 166], text: '0.25 0.78 0.65' },
+    { rgb: [168, 80, 60], text: '0.66 0.31 0.24' },
+    { rgb: [197, 138, 74], text: '0.77 0.54 0.29' },
+    { rgb: [150, 152, 118], text: '0.59 0.60 0.46' },
+    { rgb: [127, 232, 205], text: '0.50 0.91 0.80' }
+  ];
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
   canvas.width = W * dpr; canvas.height = H * dpr;
-  var ctx = canvas.getContext('2d');
-  ctx.scale(dpr, dpr);
-
+  var ctx = canvas.getContext('2d'); ctx.scale(dpr, dpr);
   function layer() {
     var c = document.createElement('canvas'); c.width = W * dpr; c.height = H * dpr;
-    var x = c.getContext('2d'); x.scale(dpr, dpr);
-    return { c: c, x: x };
+    var x = c.getContext('2d'); x.scale(dpr, dpr); return { c: c, x: x };
   }
-  var paint = layer(), stage = layer();
-
-  // Bristly soft stamps, one per point on the colour ramp.
-  function mix(a, b, t) { return a.map(function (v, i) { return Math.round(v + (b[i] - v) * t); }); }
-  var A = [63, 199, 166], B = [127, 232, 205], C = [224, 168, 94];
-  var stamps = [];
-  for (var i = 0; i < 24; i++) {
-    var t = i / 23, rgb = t < .6 ? mix(A, B, t / .6) : mix(B, C, (t - .6) / .4);
-    var s = document.createElement('canvas'), size = BRUSH * 2; s.width = s.height = size;
-    var x = s.getContext('2d'), g = x.createRadialGradient(size / 2, size / 2, 2, size / 2, size / 2, size / 2);
-    var col = rgb.join(',');
-    g.addColorStop(0, 'rgba(' + col + ',.55)'); g.addColorStop(.62, 'rgba(' + col + ',.4)'); g.addColorStop(1, 'rgba(' + col + ',0)');
-    x.fillStyle = g; x.fillRect(0, 0, size, size);
-    x.globalCompositeOperation = 'destination-out';
-    for (var n = 0; n < 26; n++) {
-      x.fillStyle = 'rgba(0,0,0,' + (.08 + Math.random() * .22) + ')';
-      x.beginPath(); x.arc(Math.random() * size, Math.random() * size, 1 + Math.random() * 5, 0, 7); x.fill();
-    }
-    stamps.push(s);
-  }
-
+  var paint = layer(), base = layer(), shade = layer();
   var ease = function (t) { return t * t * (3 - 2 * t); };
-  // One continuous stroke: smooth passes back and forth across the ball.
-  function brushAt(p) {
-    var f = Math.min(p, .99999) * PASSES, k = Math.floor(f), u = ease(f - k);
-    var dir = k % 2 ? -1 : 1, span = R * 1.02;
-    var y = CY - R * .95 + (k + u * .95) * (R * 1.9 / (PASSES - 1 || 1)) * .98;
-    return { x: CX + dir * (u * 2 - 1) * span, y: y + Math.sin(u * Math.PI) * 9 };
-  }
+  var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
 
-  var last = 0;
-  function stampTo(p) {
-    var steps = Math.max(1, Math.ceil((p - last) * PASSES * R * 2.04 / SPACING));
-    paint.x.save();
-    for (var i = 1; i <= steps; i++) {
-      var q = last + (p - last) * i / steps, b = brushAt(q);
-      var idx = Math.min(23, Math.floor(((b.x - CX + R) / (2 * R) * .5 + q * .5) * 24));
-      paint.x.drawImage(stamps[Math.max(0, idx)], b.x - BRUSH, b.y - BRUSH, BRUSH * 2, BRUSH * 2);
+  // Watercolour stamps: soft centre, slightly darker pigment rim, speckled grain.
+  function makeStamps(rgb) {
+    var out = [], size = BRUSH * 2, col = rgb.join(','), dark = rgb.map(function (v) { return Math.round(v * .72); }).join(',');
+    for (var i = 0; i < 6; i++) {
+      var s = document.createElement('canvas'); s.width = s.height = size;
+      var x = s.getContext('2d'), m = size / 2, g = x.createRadialGradient(m, m, 2, m, m, m);
+      g.addColorStop(0, 'rgba(' + col + ',.26)'); g.addColorStop(.6, 'rgba(' + col + ',.16)'); g.addColorStop(1, 'rgba(' + dark + ',0)');
+      x.fillStyle = g; x.fillRect(0, 0, size, size);
+      x.globalCompositeOperation = 'destination-out';
+      for (var n = 0; n < 34; n++) {
+        x.fillStyle = 'rgba(0,0,0,' + (.05 + Math.random() * .2) + ')';
+        x.beginPath(); x.arc(Math.random() * size, Math.random() * size, .6 + Math.random() * 4, 0, 7); x.fill();
+      }
+      out.push(s);
     }
-    paint.x.restore();
-    last = p;
+    return out;
+  }
+  COLORS.forEach(function (c) { c.stamps = makeStamps(c.rgb); });
+
+  function brushAt(p) {
+    var f = Math.min(p, .99999) * PASSES, k = Math.floor(f), u = ease(f - k), dir = k % 2 ? -1 : 1;
+    return { x: CX + dir * (u * 2 - 1) * R * 1.02, y: CY - R * .9 + (k + u) * (R * 1.8 / PASSES) + Math.sin(u * Math.PI) * 8 };
+  }
+  var stampIndex = 0;
+  function dab(x, y, color) {
+    paint.x.drawImage(color.stamps[stampIndex++ % 6], x - BRUSH, y - BRUSH, BRUSH * 2, BRUSH * 2);
+  }
+  function strokeBetween(a, b, color) {
+    var d = Math.hypot(b.x - a.x, b.y - a.y), n = Math.max(1, Math.ceil(d / SPACING));
+    for (var i = 1; i <= n; i++) dab(a.x + (b.x - a.x) * i / n, a.y + (b.y - a.y) * i / n, color);
   }
 
-  // Ball shading is drawn once and reused.
-  var base = layer(), light = layer();
+  // Ball and floor shadow are drawn once.
   (function () {
-    var x = base.x, g = x.createRadialGradient(CX - 45, CY - 55, 10, CX, CY, R);
+    var x = base.x;
+    x.save(); x.translate(CX, CY + R + 18); x.scale(1, .13);
+    var f = x.createRadialGradient(0, 0, 4, 0, 0, R);
+    f.addColorStop(0, 'rgba(0,0,0,.55)'); f.addColorStop(1, 'rgba(0,0,0,0)');
+    x.fillStyle = f; x.beginPath(); x.arc(0, 0, R, 0, 7); x.fill(); x.restore();
+    var g = x.createRadialGradient(CX - 45, CY - 55, 10, CX, CY, R);
     g.addColorStop(0, '#6b7178'); g.addColorStop(.7, '#3a3e44'); g.addColorStop(1, '#1d1f23');
     x.fillStyle = g; x.beginPath(); x.arc(CX, CY, R, 0, 7); x.fill();
-    var l = light.x, d = l.createRadialGradient(CX - 40, CY - 50, R * .35, CX, CY, R);
+    var l = shade.x, d = l.createRadialGradient(CX - 40, CY - 50, R * .35, CX, CY, R);
     d.addColorStop(0, 'rgba(0,0,0,0)'); d.addColorStop(.72, 'rgba(0,0,0,.2)'); d.addColorStop(1, 'rgba(0,0,0,.72)');
     l.fillStyle = d; l.beginPath(); l.arc(CX, CY, R, 0, 7); l.fill();
-    var h = l.createRadialGradient(CX - 55, CY - 68, 2, CX - 55, CY - 68, 62);
-    h.addColorStop(0, 'rgba(255,255,255,.5)'); h.addColorStop(1, 'rgba(255,255,255,0)');
-    l.fillStyle = h; l.beginPath(); l.arc(CX, CY, R, 0, 7); l.fill();
   })();
 
-  function draw(p, alpha, cursor) {
+  // Full starting coat, so the first frame already shows a painted ball.
+  for (var pre = 0, prev0 = brushAt(0); pre <= 1; pre += .004) { var b0 = brushAt(pre); strokeBetween(prev0, b0, COLORS[0]); prev0 = b0; }
+
+  var masked = layer();
+  var rough = .4, roughTarget = .4;
+  function draw(cursor) {
     ctx.clearRect(0, 0, W, H);
-    // floor shadow
-    var f = ctx.createRadialGradient(CX, CY + R + 16, 4, CX, CY + R + 16, R);
-    f.addColorStop(0, 'rgba(0,0,0,.5)'); f.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.save(); ctx.translate(0, (CY + R + 16) * .84); ctx.scale(1, .16); ctx.fillStyle = f;
-    ctx.fillRect(0, 0, W, H * 2); ctx.restore();
     ctx.drawImage(base.c, 0, 0, W, H);
-    var s = stage.x; s.clearRect(0, 0, W, H);
-    s.globalCompositeOperation = 'source-over'; s.globalAlpha = 1;
-    s.beginPath(); s.arc(CX, CY, R, 0, 7); s.fillStyle = '#000'; s.fill();
-    s.globalCompositeOperation = 'source-in'; s.globalAlpha = alpha;
-    s.drawImage(paint.c, 0, 0, W, H);
-    ctx.drawImage(stage.c, 0, 0, W, H);
-    ctx.drawImage(light.c, 0, 0, W, H);
+    var s = masked.x; s.globalCompositeOperation = 'source-over'; s.clearRect(0, 0, W, H);
+    s.fillStyle = '#000'; s.beginPath(); s.arc(CX, CY, R, 0, 7); s.fill();
+    s.globalCompositeOperation = 'source-in'; s.drawImage(paint.c, 0, 0, W, H);
+    ctx.drawImage(masked.c, 0, 0, W, H);
+    ctx.drawImage(shade.c, 0, 0, W, H);
+    // The Value node really drives the shine: this is the Roughness input.
+    var hx = CX - 55, hy = CY - 68, hr = 26 + rough * 110, h = ctx.createRadialGradient(hx, hy, 1, hx, hy, hr);
+    h.addColorStop(0, 'rgba(255,255,255,' + (.72 - rough * .55) + ')'); h.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.save(); ctx.beginPath(); ctx.arc(CX, CY, R, 0, 7); ctx.clip(); ctx.fillStyle = h; ctx.fillRect(0, 0, W, H); ctx.restore();
     if (cursor) {
-      var b = brushAt(p);
-      ctx.strokeStyle = 'rgba(255,255,255,.85)'; ctx.lineWidth = 1.2;
-      ctx.beginPath(); ctx.arc(b.x, b.y, BRUSH * .62, 0, 7); ctx.stroke();
-      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(b.x, b.y, 1.6, 0, 7); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,.8)'; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(cursor.x, cursor.y, BRUSH * .6, 0, 7); ctx.stroke();
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(cursor.x, cursor.y, 1.5, 0, 7); ctx.fill();
     }
   }
 
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { stampTo(1); draw(1, 1, false); return; }
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { draw(null); return; }
 
-  // The graph runs on this same clock: everything builds in order, then fades together.
-  var GRAPH_OUT = 13800, GRAPH_GONE = 14800;
-  var parts = [].slice.call(document.querySelectorAll('.g-node,.g-wire,.g-hit')).map(function (el) {
-    return { el: el, at: parseFloat(el.style.getPropertyValue('--d')) * 1000 || 0, wire: el.classList.contains('g-wire'), hit: el.classList.contains('g-hit') };
+  // Graph: wires connect once on load, then values keep flowing along them.
+  var wires = [].slice.call(document.querySelectorAll('.hero-graph .g-wire'));
+  var hits = [].slice.call(document.querySelectorAll('.hero-graph .g-hit'));
+  var svg = document.querySelector('.hero-graph'), NS = 'http://www.w3.org/2000/svg';
+  var flows = wires.map(function (w, i) {
+    var c = document.createElementNS(NS, 'circle'); c.setAttribute('r', '2.6'); c.setAttribute('class', 'g-flow');
+    c.style.fill = getComputedStyle(w).stroke; svg.appendChild(c);
+    return { el: c, wire: w, len: w.getTotalLength(), phase: i / wires.length };
   });
-  var graph = document.querySelector('.hero-stage svg');
+  wires.forEach(function (w) { w.style.strokeDashoffset = 1; });
+  hits.forEach(function (h) { h.style.opacity = 0; });
   function drawGraph(t) {
-    var out = t < GRAPH_OUT ? 1 : Math.max(0, 1 - ease(Math.min(1, (t - GRAPH_OUT) / (GRAPH_GONE - GRAPH_OUT))));
-    graph.style.setProperty('--fade', out);
-    parts.forEach(function (p) {
-      var u;
-      if (p.wire) {
-        u = ease(Math.max(0, Math.min(1, (t - p.at) / 900)));
-        p.el.style.strokeDashoffset = 1 - u;
-        p.el.style.opacity = u > 0 ? out : 0;
-      } else if (p.hit) { // the socket pops as its wire lands
-        u = Math.max(0, Math.min(1, (t - p.at - 850) / 350));
-        p.el.style.transform = 'scale(' + (1 + Math.sin(u * Math.PI) * .9) + ')';
-        p.el.style.opacity = t > p.at + 800 ? out : 0;
-      } else {
-        u = ease(Math.max(0, Math.min(1, (t - p.at) / 500)));
-        p.el.style.opacity = u * out;
-        p.el.style.transform = 'translateY(' + (1 - u) * 10 + 'px)';
+    wires.forEach(function (w, i) {
+      var at = 100 + i * 350, u = ease(clamp((t - at) / 500, 0, 1));
+      w.style.strokeDashoffset = 1 - u;
+      if (hits[i]) {
+        var pop = clamp((t - at - 480) / 320, 0, 1);
+        hits[i].style.opacity = t > at + 460 ? 1 : 0;
+        hits[i].style.transform = 'scale(' + (1 + Math.sin(pop * Math.PI) * .9) + ')';
       }
+    });
+    if (t < 1500) return;
+    flows.forEach(function (f) {
+      var u = ((t - 1500) / 2600 + f.phase) % 1, pt = f.wire.getPointAtLength(u * f.len);
+      f.el.setAttribute('cx', pt.x); f.el.setAttribute('cy', pt.y);
+      f.el.style.opacity = Math.min(1, Math.min(u, 1 - u) * 8);
     });
   }
 
-  var clock = 0, prev = 0;
+  var colorText = document.getElementById('g-color-value'), swatch = document.getElementById('g-color-swatch'), valueText = document.getElementById('g-value-value');
+  var colorIndex = 1;
+  function setColor(i) {
+    var c = COLORS[i];
+    if (colorText) colorText.textContent = c.text;
+    if (swatch) swatch.setAttribute('fill', 'rgb(' + c.rgb.join(',') + ')');
+  }
+  setColor(colorIndex);
+
+  // Mouse: over the ball the brush follows you. Elsewhere the Value node follows your horizontal position.
+  var mouse = null, over = false, last = null, wasOver = false;
+  hero.addEventListener('pointermove', function (e) {
+    if (e.pointerType === 'touch') return;
+    var r = canvas.getBoundingClientRect(), k = W / r.width;
+    mouse = { x: (e.clientX - r.left) * k, y: (e.clientY - r.top) * k };
+    over = Math.hypot(mouse.x - CX, mouse.y - CY) < R + 20;
+    var hr = hero.getBoundingClientRect();
+    roughTarget = clamp((e.clientX - hr.left) / hr.width, .08, .92);
+    hero.style.setProperty('--px', ((e.clientX - hr.left) / hr.width - .5).toFixed(3));
+    hero.style.setProperty('--py', ((e.clientY - hr.top) / hr.height - .5).toFixed(3));
+  });
+  hero.addEventListener('pointerleave', function () { over = false; mouse = null; });
+
+  var clock = 0, elapsed = 0, prev = 0, shown = '';
   function frame(now) {
     requestAnimationFrame(frame);
     var dt = Math.min(now - prev, 50); prev = now;
-    if (hero.classList.contains('motion-paused')) return; // the graph's CSS animations pause with this class too
-    var was = clock; clock = (clock + dt) % LOOP;
-    if (clock < was) { paint.x.clearRect(0, 0, W, H); last = 0; }
-    var p = Math.max(0, Math.min(1, (clock - START) / (END - START)));
-    if (p > last) stampTo(p);
-    var a = clock < FADE_FROM ? 1 : Math.max(0, 1 - ease((clock - FADE_FROM) / (FADE_TO - FADE_FROM)));
-    draw(p, a, clock > START && clock < END);
-    drawGraph(clock);
+    if (hero.classList.contains('motion-paused')) return;
+    elapsed += dt;
+    drawGraph(elapsed);
+    rough += (roughTarget - rough) * .08;
+    var label = rough.toFixed(3);
+    if (label !== shown && valueText) { valueText.textContent = label; shown = label; }
+    var color = COLORS[colorIndex], cursor = null;
+    if (over && mouse) {
+      if (!wasOver) last = mouse;
+      strokeBetween(last, mouse, color);
+      last = { x: mouse.x, y: mouse.y }; cursor = mouse; wasOver = true;
+    } else {
+      wasOver = false;
+      var before = clock; clock += dt;
+      if (clock < STROKE_MS) {
+        strokeBetween(brushAt(before / STROKE_MS), brushAt(clock / STROKE_MS), color);
+        cursor = brushAt(clock / STROKE_MS);
+      } else if (clock >= STROKE_MS + REST_MS) {
+        clock = 0; colorIndex = (colorIndex + 1) % COLORS.length; setColor(colorIndex);
+        cursor = brushAt(0);
+      }
+    }
+    draw(cursor);
   }
-  draw(0, 1, false); drawGraph(0);
+  draw(brushAt(0));
   requestAnimationFrame(function (n) { prev = n; frame(n); });
 })();
