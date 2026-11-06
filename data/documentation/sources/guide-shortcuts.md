@@ -15,6 +15,15 @@ Every shortcut can be changed in **Preferences > Keymap**. **Ctrl+K** searches e
 | Middle-drag | Pan (default navigation) |
 | **Alt** + right-drag | Zoom (default navigation) |
 
+## Layers
+
+| Key | Action |
+|---|---|
+| **Ctrl+A** | Select all layers |
+| **Ctrl+G** | Group selected layers |
+| **Ctrl**-click | Deselect a selected layer |
+| **Alt**-click an eye | Solo a layer |
+
 ## Paint tools
 
 | Key | Tool |

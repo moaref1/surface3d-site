@@ -118,7 +118,7 @@
       "category": "Painting & layers",
       "status": "available",
       "body": "Dent, fold, carve and inflate the surface in a live Sculpt layer. Smart masks and edge damage follow your sculpt.",
-      "points": "Clay, crease, pinch, flatten, scrape and more\nHeight and normal detail in one undo step\nBake + Sculpt for masks that react to it",
+      "points": "Clay, crease, pinch, flatten, scrape and more\nCloth brushes that form folds as relief\nHeight and normal detail in one undo step\nBake + Sculpt for masks that react to it",
       "statusDetail": "",
       "videoTitle": "",
       "videoUrl": "",
@@ -312,19 +312,19 @@
       "title": "Build a readable layer stack",
       "body": "A short written guide to fills, paint layers, masks and channel blending.",
       "type": "article",
-      "url": ""
+      "url": "docs.html?guide=guide-layers-and-masks"
     },
     {
-      "title": "Create a reusable procedural surface",
-      "body": "A video walkthrough of building a pattern and reusing its graph output.",
-      "type": "video",
-      "url": ""
-    },
-    {
-      "title": "Bake maps for a hard-surface prop",
-      "body": "A practical guide to projection distance, cage setup and map review.",
+      "title": "Edit a graph and reuse its results",
+      "body": "A written guide to editing a graph and reusing its results in your project.",
       "type": "article",
-      "url": ""
+      "url": "docs.html?guide=workflow-graph-editing-and-reusable-results"
+    },
+    {
+      "title": "Bake mesh maps and clean them up",
+      "body": "A short guide to baking mesh maps and cleaning up the result.",
+      "type": "article",
+      "url": "docs.html?guide=workflow-baking-and-cleanup"
     }
   ],
   "homepage": {
