@@ -1,0 +1,25 @@
+/* Home hero background: the app's node graph on the left, a painted material ball on the right. */
+.home-hero{position:relative;overflow:hidden;background:#101a15}
+.home-hero-copy{position:relative;z-index:3}
+.hero-stage{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-stage:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#101a15f0 0%,#101a15d9 30%,#101a1540 48%,#101a1500 62%)}
+.hero-graph,.hero-ball{position:absolute;top:50%;translate:0 -50%;display:block;height:auto}
+.hero-graph{left:1%;width:19.5%}
+.hero-ball{right:-6%;width:36%}
+
+.g-node text{font:12px "Segoe UI",system-ui,sans-serif;fill:#d8dade}
+.g-node .g-title{font-size:13px;font-weight:500;fill:#fff}
+.g-node .g-res{font-size:9px;fill:#7b8189}
+.g-body{fill:#222428}
+.g-wire{fill:none;stroke-width:1.8;stroke-linecap:round;stroke-dasharray:1}
+.g-hit{transform-box:fill-box;transform-origin:center}
+.g-sock{stroke:#17191c;stroke-width:1}
+.y{stroke:#e0ad3f}.w{stroke:#d9dbde}.b{stroke:#5b9bdc}.v{stroke:#8d7ce0}
+circle.y{fill:#e0ad3f}circle.w{fill:#d9dbde}circle.b{fill:#5b9bdc}circle.v{fill:#8d7ce0}
+circle.y,circle.w,circle.b,circle.v{stroke:#17191c}
+
+@media(max-width:800px){
+ .hero-graph{left:-3%;width:66%;top:76%}
+ .hero-ball{right:-42%;width:120%;top:24%}
+ .hero-stage:after{background:#101a15c4}
+}

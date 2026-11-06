@@ -1,6 +1,6 @@
 # Getting started
 
-Surface3D runs on Windows 10 and 11 (64-bit) with a DirectX 11 graphics card.
+Surface3D runs on Windows 10 and 11 (64-bit) with an up-to-date graphics driver. A Linux x86_64 beta is also available as an AppImage from the same page.
 
 ## Install
 

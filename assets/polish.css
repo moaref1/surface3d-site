@@ -38,3 +38,8 @@ html{overflow-x:clip}
 @media(max-width:800px){.workflow-nav span{display:none}.workflow-nav{gap:10px 18px}}
 /* Keep the video buttons out of the way on small players */
 @media(max-width:600px){.video-tools button{padding:4px 10px;font-size:12px}}
+
+/* Linux download card */
+.download-card+.download-card{margin-top:14px}
+.download-card .beta-tag{display:inline-block;margin-left:10px;padding:2px 8px;border-radius:5px;background:#e3b36e;color:#241c12;font-size:12px;font-weight:700;vertical-align:middle}
+.download-card.is-mine{outline:2px solid var(--teal,#53bcb5)}
