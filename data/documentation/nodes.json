@@ -10941,7 +10941,7 @@
     "id": 191,
     "name": "Blue Noise / Progressive",
     "category": "Noise",
-    "description": "Original toroidal progressive farthest-point rank texture. Deterministic seed and tile size; not a copy of Adobe's Blue Noise Fast recipe.",
+    "description": "Original toroidal progressive farthest-point rank texture. Deterministic seed and tile size.",
     "visible": true,
     "spatial": true,
     "inputs": [],
