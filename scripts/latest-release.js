@@ -32,7 +32,7 @@
       if (el.textContent !== t) el.textContent = t;
     });
     document.querySelectorAll('.download-card p').forEach(function (el) {
-      if (/ZIP download/.test(el.textContent)) el.textContent = 'Windows 64-bit · ZIP · ' + Math.round(latest.size / 1048576) + ' MB';
+      if (/ZIP download/.test(el.textContent)) el.textContent = 'ZIP · ' + Math.round(latest.size / 1048576) + ' MB';
     });
     // Only touch the DOM when something differs, so the observer below settles.
   }

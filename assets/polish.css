@@ -29,3 +29,12 @@
 .download-card .button.primary{box-shadow:0 8px 30px rgba(63,199,166,.28)}
 
 @media (prefers-reduced-motion:reduce){.left-wire,.enter-node rect{filter:none}}
+
+/* Review pass */
+html{overflow-x:clip}
+.download-card .download-req{font-size:14px;opacity:.75;margin-top:6px}
+.download-steps a.text-link{text-decoration:underline;text-underline-offset:3px}
+/* Chapter links wrap on small screens, where the dashes would dangle at line ends */
+@media(max-width:800px){.workflow-nav span{display:none}.workflow-nav{gap:10px 18px}}
+/* Keep the video buttons out of the way on small players */
+@media(max-width:600px){.video-tools button{padding:4px 10px;font-size:12px}}
