@@ -20,7 +20,7 @@
         list.forEach(function (r) {
           if (r.draft || r.prerelease) return;
           info.windows = info.windows || asset(r, /Windows-x64\.zip$/i);
-          info.linux = info.linux || asset(r, /Linux-x86_64.*\.AppImage$/i);
+          info.linux = info.linux || asset(r, /\.AppImage$/i);
         });
         try { sessionStorage.setItem(KEY, JSON.stringify(info)); } catch (e) {}
         return info;
@@ -54,7 +54,7 @@
 
   // Linux visitors see their download first, even before the release list arrives.
   if (isLinux) {
-    document.querySelectorAll('[data-os-label]').forEach(function (el) { el.textContent = 'Download Linux beta'; });
+    document.querySelectorAll('[data-os-label]').forEach(function (el) { el.textContent = 'Download'; });
     var mine = document.querySelector('.download-card[data-os="linux"]');
     if (mine) { mine.classList.add('is-mine'); mine.parentNode.insertBefore(mine, document.querySelector('.download-card[data-os="windows"]')); }
   }
