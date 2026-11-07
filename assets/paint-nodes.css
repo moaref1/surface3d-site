@@ -34,8 +34,6 @@
 
 /* Cards: node sockets and a pigment glow that follows the mouse */
 .feature-entry,.tutorial-card,.price-card,.info-card,.showcase-card{position:relative;isolation:isolate}
-.feature-entry:before,.tutorial-card:before,.price-card:before,.info-card:before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(197,138,74,.16),rgba(63,199,166,.07) 45%,transparent 72%)}
-.feature-entry:hover:before,.tutorial-card:hover:before,.price-card:hover:before,.info-card:hover:before{opacity:1}
 .feature-entry:after,.tutorial-card:after,.price-card:after{content:"";position:absolute;top:44px;left:-4px;width:8px;height:8px;border-radius:50%;background:#e0ad3f;box-shadow:calc(var(--card-w,0px)) 0 0 #d9dbde;opacity:0;scale:.4;transition:opacity .2s,scale .25s cubic-bezier(.3,1.6,.5,1)}
 .feature-entry:hover:after,.tutorial-card:hover:after,.price-card:hover:after{opacity:1;scale:1}
 
@@ -72,3 +70,5 @@
  .pn-rise{opacity:1;transform:none;transition:none}
  .button:before{transition:none}
 }
+
+.price-was{font-size:.55em;color:#8b939b;text-decoration-thickness:2px;margin-right:6px;vertical-align:middle}

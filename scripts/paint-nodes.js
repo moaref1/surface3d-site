@@ -107,7 +107,7 @@
       ticking = false;
       var r = story.getBoundingClientRect(), p = Math.max(0, Math.min(1, (innerHeight * .5 - r.top) / r.height));
       fill.style.strokeDashoffset = 1 - p;
-      nav.classList.toggle('pn-rail-on', r.top < innerHeight * .6 && r.bottom > innerHeight * .4);
+      nav.classList.toggle('pn-rail-on', r.top < innerHeight * .25 && r.bottom > innerHeight * .4);
       dots.forEach(function (d, i) { d.classList.toggle('on', p >= i / (dots.length - 1) - .001); });
     }
     addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
@@ -131,7 +131,7 @@
   }
 
   function start() {
-    addBleeds(); headings(); rail(); mouse(); watch();
+    headings(); rail(); watch();
     addEventListener('surface-features-rendered', function () { setTimeout(watch); });
     addEventListener('surface-content-updated', function () { setTimeout(watch); });
   }
