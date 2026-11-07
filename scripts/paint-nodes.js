@@ -105,7 +105,16 @@
     var story = document.querySelector('.workflow-story'), fill = nav.querySelector('.pn-rail-fill'), ticking = false;
     function update() {
       ticking = false;
-      var r = story.getBoundingClientRect(), p = Math.max(0, Math.min(1, (innerHeight * .5 - r.top) / r.height));
+      // Progress follows the chapters themselves: node i fills once chapter i reaches the middle of the screen.
+      var r = story.getBoundingClientRect(), mid = innerHeight * .5, n = dots.length, p = 0;
+      var tops = dots.map(function (d) { var s = document.querySelector(d.getAttribute('href')); return s ? s.getBoundingClientRect().top : Infinity; });
+      for (var i = 0; i < n; i++) {
+        if (tops[i] > mid) break;
+        var next = i + 1 < n ? tops[i + 1] : tops[i] + 1;
+        p = (i + Math.max(0, Math.min(1, (mid - tops[i]) / Math.max(1, next - tops[i])))) / (n - 1);
+      }
+      if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) p = 1;
+      p = Math.min(1, p);
       fill.style.strokeDashoffset = 1 - p;
       nav.classList.toggle('pn-rail-on', r.top < innerHeight * .25 && r.bottom > innerHeight * .4);
       dots.forEach(function (d, i) { d.classList.toggle('on', p >= i / (dots.length - 1) - .001); });
