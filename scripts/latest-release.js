@@ -47,6 +47,7 @@
     setHref('a[data-link="build"]:not(.download-card a)', isLinux && latest.linux ? latest.linux : latest.windows);
     setHref('.download-card a[data-link="build"]', latest.windows);
     setHref('a[data-link="linux"]', latest.linux);
+    setHref('a[data-link="windows"]', latest.windows);
     card('windows', latest.windows, 'ZIP');
     card('linux', latest.linux, 'AppImage');
     // Only touch the DOM when something differs, so the observer below settles.

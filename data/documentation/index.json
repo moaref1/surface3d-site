@@ -1,140 +1,164 @@
 {
-  "version": "0.34",
-  "schema": 34,
-  "generatedFrom": "Current local Surface3D docs and build-023 native registry",
-  "nodeCount": 236,
-  "registeredNodeCount": 235,
-  "sourceOnlyCount": 1,
-  "searchableNodeCount": 218,
-  "parameterCount": 669,
-  "articles": [
-    {
-      "id": "guide-getting-started",
-      "title": "Getting started",
-      "path": "data/documentation/sources/guide-getting-started.md",
-      "category": "Start here",
-      "version": "Current",
-      "status": "User guide"
-    },
-    {
-      "id": "guide-workspaces",
-      "title": "Workspaces",
-      "path": "data/documentation/sources/guide-workspaces.md",
-      "category": "Start here",
-      "version": "Current",
-      "status": "User guide"
-    },
-    {
-      "id": "guide-layers-and-masks",
-      "title": "Layers and masks",
-      "path": "data/documentation/sources/guide-layers-and-masks.md",
-      "category": "Start here",
-      "version": "Current",
-      "status": "User guide"
-    },
-    {
-      "id": "guide-teach-mode",
-      "title": "Weathering and teach mode",
-      "path": "data/documentation/sources/guide-teach-mode.md",
-      "category": "Start here",
-      "version": "Current",
-      "status": "User guide"
-    },
-    {
-      "id": "guide-shortcuts",
-      "title": "Keyboard shortcuts",
-      "path": "data/documentation/sources/guide-shortcuts.md",
-      "category": "Start here",
-      "version": "Current",
-      "status": "User guide"
-    },
-    {
-      "id": "workflow-start-a-project",
-      "title": "Start a project",
-      "path": "data/documentation/sources/workflow-start-a-project.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    },
-    {
-      "id": "workflow-layers-channels-and-opacity",
-      "title": "Layers, channels and opacity",
-      "path": "data/documentation/sources/workflow-layers-channels-and-opacity.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    },
-    {
-      "id": "workflow-brushes-paint-nodes-and-stencils",
-      "title": "Brushes, Paint nodes and stencils",
-      "path": "data/documentation/sources/workflow-brushes-paint-nodes-and-stencils.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    },
-    {
-      "id": "workflow-graph-editing-and-reusable-results",
-      "title": "Graph editing and reusable results",
-      "path": "data/documentation/sources/workflow-graph-editing-and-reusable-results.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    },
-    {
-      "id": "workflow-resolution-and-performance",
-      "title": "Resolution and performance",
-      "path": "data/documentation/sources/workflow-resolution-and-performance.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    },
-    {
-      "id": "workflow-coordinates-and-projection",
-      "title": "Coordinates and projection",
-      "path": "data/documentation/sources/workflow-coordinates-and-projection.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    },
-    {
-      "id": "workflow-baking-and-cleanup",
-      "title": "Baking and cleanup",
-      "path": "data/documentation/sources/workflow-baking-and-cleanup.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    },
-    {
-      "id": "workflow-uv-editing-and-model-iteration",
-      "title": "UV editing and model iteration",
-      "path": "data/documentation/sources/workflow-uv-editing-and-model-iteration.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    },
-    {
-      "id": "workflow-paths-vertex-data-and-samplers",
-      "title": "Paths, vertex data and samplers",
-      "path": "data/documentation/sources/workflow-paths-vertex-data-and-samplers.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    },
-    {
-      "id": "workflow-export-color-and-library",
-      "title": "Export, color and library",
-      "path": "data/documentation/sources/workflow-export-color-and-library.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    },
-    {
-      "id": "workflow-how-to-use-this-reference",
-      "title": "How to use this reference",
-      "path": "data/documentation/sources/workflow-how-to-use-this-reference.md",
-      "category": "Reference",
-      "version": "Handbook 0.34",
-      "status": "Some screens have changed since 0.34"
-    }
-  ]
+ "version": "0.94",
+ "nodeCount": 224,
+ "families": [
+  {
+   "name": "Inputs",
+   "color": "#83314a",
+   "count": 26
+  },
+  {
+   "name": "Coordinates & Transforms",
+   "color": "#5454a0",
+   "count": 19
+  },
+  {
+   "name": "Patterns & Noise",
+   "color": "#aa5c1e",
+   "count": 35
+  },
+  {
+   "name": "Scatter & Tiles",
+   "color": "#966e28",
+   "count": 6
+  },
+  {
+   "name": "Paths",
+   "color": "#34708c",
+   "count": 9
+  },
+  {
+   "name": "Color & Channels",
+   "color": "#7a7424",
+   "count": 28
+  },
+  {
+   "name": "Filters",
+   "color": "#246283",
+   "count": 42
+  },
+  {
+   "name": "Normals & Height",
+   "color": "#644696",
+   "count": 14
+  },
+  {
+   "name": "Masks & Shapes",
+   "color": "#2e7052",
+   "count": 7
+  },
+  {
+   "name": "Materials",
+   "color": "#28803c",
+   "count": 18
+  },
+  {
+   "name": "Utilities & Functions",
+   "color": "#505050",
+   "count": 17
+  },
+  {
+   "name": "Outputs",
+   "color": "#6e2230",
+   "count": 3
+  }
+ ],
+ "articles": [
+  {
+   "id": "guide-getting-started",
+   "title": "Getting started",
+   "path": "data/documentation/sources/guide-getting-started.md",
+   "category": "Start here"
+  },
+  {
+   "id": "guide-first-texture",
+   "title": "Your first texture",
+   "path": "data/documentation/sources/guide-first-texture.md",
+   "category": "Start here"
+  },
+  {
+   "id": "guide-navigation",
+   "title": "Moving around",
+   "path": "data/documentation/sources/guide-navigation.md",
+   "category": "Start here"
+  },
+  {
+   "id": "guide-workspaces",
+   "title": "The interface",
+   "path": "data/documentation/sources/guide-workspaces.md",
+   "category": "Start here"
+  },
+  {
+   "id": "guide-layers-and-masks",
+   "title": "Layers and sub-layers",
+   "path": "data/documentation/sources/guide-layers-and-masks.md",
+   "category": "Painting"
+  },
+  {
+   "id": "guide-brushes",
+   "title": "Brushes and tools",
+   "path": "data/documentation/sources/guide-brushes.md",
+   "category": "Painting"
+  },
+  {
+   "id": "guide-sculpting",
+   "title": "Sculpting into the normal map",
+   "path": "data/documentation/sources/guide-sculpting.md",
+   "category": "Painting"
+  },
+  {
+   "id": "guide-edge-damage",
+   "title": "Edge damage and bevels",
+   "path": "data/documentation/sources/guide-edge-damage.md",
+   "category": "Painting"
+  },
+  {
+   "id": "guide-teach-mode",
+   "title": "Weathering and Teach mask",
+   "path": "data/documentation/sources/guide-teach-mode.md",
+   "category": "Painting"
+  },
+  {
+   "id": "guide-splines-particles",
+   "title": "Splines and particles",
+   "path": "data/documentation/sources/guide-splines-particles.md",
+   "category": "Painting"
+  },
+  {
+   "id": "guide-library",
+   "title": "Material library",
+   "path": "data/documentation/sources/guide-library.md",
+   "category": "Materials and nodes"
+  },
+  {
+   "id": "guide-node-graphs",
+   "title": "Node graphs",
+   "path": "data/documentation/sources/guide-node-graphs.md",
+   "category": "Materials and nodes"
+  },
+  {
+   "id": "guide-baking",
+   "title": "Baking mesh maps",
+   "path": "data/documentation/sources/guide-baking.md",
+   "category": "Bake, UV and export"
+  },
+  {
+   "id": "guide-uv-rendering-export",
+   "title": "UV, Rendering and Export",
+   "path": "data/documentation/sources/guide-uv-rendering-export.md",
+   "category": "Bake, UV and export"
+  },
+  {
+   "id": "guide-shortcuts",
+   "title": "Keyboard shortcuts",
+   "path": "data/documentation/sources/guide-shortcuts.md",
+   "category": "Reference"
+  },
+  {
+   "id": "guide-saving-performance",
+   "title": "Saving, performance and limits",
+   "path": "data/documentation/sources/guide-saving-performance.md",
+   "category": "Reference"
+  }
+ ]
 }

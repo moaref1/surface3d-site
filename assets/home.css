@@ -1,10 +1,9 @@
 /* Landing page (index.html only). Follows marketing/DESIGN-LANGUAGE.md: near-black UI, teal accent,
    node headers by family, sockets and wires by data type, Bricolage / Inter / JetBrains Mono. */
 .home2{--bg:#0f1114;--bg-deep:#0c0d10;--panel:#2a2f37;--pt:#363c45;--node:#262a30;--node-on:#3a4049;--ink:#e6ebef;--dim:#a9b2ba;--faint:#6f7881;--teal:#5fead8;
- --fd:'Bricolage Grotesque',Inter,system-ui,sans-serif;--fb:Inter,'Segoe UI',system-ui,sans-serif;--fm:'JetBrains Mono',Consolas,monospace;
+ --fd:'Geologica',system-ui,sans-serif;--fb:'Geologica',system-ui,sans-serif;--fm:'Martian Mono',ui-monospace,Consolas,monospace;
  --gut:32px;background:var(--bg);color:var(--ink);font-family:var(--fb)}
 .home2 main{display:block;padding:0;gap:0;overflow-x:clip}
-.home2 .site-header{background:#0f1114e6}
 .home2 .site-footer{background:var(--bg-deep)}
 .home2 ::selection{background:var(--teal);color:#06201d}
 
@@ -190,12 +189,6 @@ svg.wires path.flow{stroke:#ffffff;stroke-width:2.2;opacity:0;stroke-dasharray:.
 .h-js .h-lp.is-in .row{opacity:1;transform:none}
 .h-lp .row:nth-child(3){transition-delay:.06s}.h-lp .row:nth-child(4){transition-delay:.12s}.h-lp .row:nth-child(5){transition-delay:.18s}.h-lp .row:nth-child(6){transition-delay:.24s}
 
-@media (min-width:1000px) and (min-height:640px){
- .h-layers{height:200vh}
- .h-layers .h-sticky{position:sticky;top:70px;min-height:calc(100vh - 70px);display:flex;align-items:center;padding:24px 0}
- .h-layers .h-sticky>.h-wrap{width:min(1200px,calc(100% - var(--gut)*2))}
- .h-layers h2{font-size:clamp(40px,4.6vw,68px)}
-}
 
 /* ---------- 02 sculpt ---------- */
 .h-split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(40px,7vw,112px);align-items:center}
@@ -265,6 +258,8 @@ svg.wires path.flow{stroke:#ffffff;stroke-width:2.2;opacity:0;stroke-dasharray:.
 .plan li{position:relative;padding-left:22px;font:500 14.5px/1.4 var(--fb);color:var(--ink)}
 .plan li:before{content:"";position:absolute;left:0;top:.3em;width:9px;height:9px;border-radius:50%;background:#bdc4cf;border:2px solid #101215;box-shadow:0 0 0 1px #ffffff1c}
 .plan .h-btn{width:100%}
+.plan .mail{margin:12px 0 0;text-align:center;font:500 12px/1.4 var(--fm);color:var(--faint)}
+.plan .mail a{color:var(--dim)}
 .plan.free{border-color:#5fead880;box-shadow:0 0 0 1px #5fead855,0 30px 80px -30px #5fead855,inset 0 1px 0 #ffffff0d;background:linear-gradient(180deg,#5fead80d,transparent 40%),var(--node)}
 .plan.free .price .big{font-size:clamp(76px,7vw,104px);color:var(--teal);line-height:.8}
 .plan.free li:before{background:var(--teal)}

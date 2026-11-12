@@ -1,31 +1,60 @@
-# Layers and masks
+# Layers and sub-layers
 
-New layers go directly above the selected layer, inside its folder.
+A material in Surface3D is a stack of layers, read from the bottom up, like in a 2D paint app. Every layer can also be opened as a node graph when you want procedural control.
 
 ## Layer types
 
 | Layer | What it does |
 |---|---|
-| **Fill** | A material across the model. Every channel is one row: on/off chip, value and a link button. |
-| **Paint** | Brush strokes in all channels. The brush paints whatever is selected. |
+| **Fill** | One material over the whole model. Shows its material on a small sphere. |
+| **Paint** | Brush strokes in every channel you paint. |
 | **Procedural fill** | Driven by a node graph. **Open in Graph** edits it. |
-| **Sculpt** | Created when you start sculpting (**Y**). Holds height and normal detail. |
-| **Spline** | Paint along a curve or scatter items (**P**). |
-| **Edge damage** | Chips and dents along edges and bevels, live as you edit. |
-| **Weathering** | Rust, moss, dirt, dust, leak stains, or a mask you teach. See [Weathering and teach mode](guide-teach-mode.md). |
-| **Folder** | Groups layers and can carry its own mask. |
+| **Sculpt** | Height and normal detail you sculpt. Made automatically when you start sculpting (**Y**). |
+| **Spline** | Paint or scatter along curves (**P**). |
+| **Edge damage** | Chips and dents along the model's edges and bevels, live. |
+| **Weathering** | Rust, moss, dirt, dust, leak stains, or a mask you teach. |
+| **Folder** | Groups layers. A folder can have its own mask. |
+
+New layers go right above the selected one, inside its folder.
+
+## Sub-layers
+
+Sub-layers live inside a layer and change only that layer.
+
+- Add a **paint**, **fill** or **Levels** sub-layer with one click from the layer.
+- **Ctrl+X** cuts a sub-layer and **Ctrl+V** pastes it into another layer, or just drag it across.
+- Drop a sub-layer on a mask or on the material to convert it.
 
 ## Masks
 
-- Click **+ Mask** on a layer to add one.
-- The **paint target chip** at the top right of the toolbar shows where the next stroke goes: the material, the mask or an effect.
-- Nothing adds or switches on a mask by itself. Erasing or painting never creates one.
-- The Properties header shows Layer > Material / Mask / effect. Click the layer name to go back.
+1. Click **+ Mask** on a layer (folders too).
+2. Press **Q** to switch between painting the mask and painting the material.
+3. Paint white to show the layer, black to hide it. **X** swaps the colours, **D** resets them.
 
-## Smart masks and mesh maps
+Good to know:
 
-Smart masks and generators read the baked mesh maps. Under **Properties > Mesh maps**, choose **Bake + (layer)** so curvature, wear and dirt react to what you sculpted or damaged.
+- Nothing adds a mask by itself; erasing or painting never creates one.
+- **Delete** on a selected mask removes only the mask.
+- Mask menus add effects straight into the mask (smart masks, generators, Levels).
+- Blur, Smudge and Clone work on masks too.
 
-## Layer menu
+## Working with layers
 
-Right-click a layer for rename, duplicate, move up or down, save to Assets and delete. **F2** renames the selected layer.
+| Key | Over the Layers panel |
+|---|---|
+| **F2** | Rename |
+| **Ctrl+D** | Duplicate |
+| **Ctrl+C** / **Ctrl+V** | Copy / paste |
+| **Ctrl+E** | Merge layers |
+| **Ctrl+A** | Select all layers |
+| **Ctrl+G** | Group into a folder |
+| **Up** / **Down** | Select the layer above / below |
+| **Delete** | Delete |
+
+- **Alt**-click an eye to show only that layer. **Shift**-drag across eyes to set many at once.
+- Right-click a layer for all its actions.
+- An empty stack shows "No layers"; every layer can be deleted.
+
+## Taking a channel from another layer
+
+The **Uses** list lets a slot read from another layer: for example, a layer's roughness can follow a mask further down the stack.

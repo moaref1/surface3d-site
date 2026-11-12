@@ -1,34 +1,46 @@
 # Getting started
 
-Surface3D runs on Windows 10 and 11 (64-bit) with an up-to-date graphics driver. A Linux x86_64 beta is also available as an AppImage from the same page.
+Surface3D is a free 3D texture painting app for individuals. This page gets it running and shows you around in five minutes.
 
-## Install
+## What you need
 
-1. Download the newest ZIP from the [Download page](download.html).
-2. Right-click the ZIP and choose **Extract All**. Running from inside the ZIP does not work.
-3. Open the extracted folder and run **Surface3D.exe**.
-4. Keep everything next to the exe together: `assets`, `shaders`, `shader-cache`, `library` and the DLLs.
+| | |
+|---|---|
+| **Windows** | Windows 10 or 11, 64-bit |
+| **Linux (beta)** | x86_64 with a Vulkan driver |
+| **Graphics card** | Any recent card with an up-to-date driver. 8 GB of video memory is enough for smooth 4K. |
 
-**Help > Check for updates** (also checked at start-up) installs new versions into the same folder.
+## Install on Windows
 
-## Your first material
+1. Download the newest **Windows ZIP** from the [landing page](index.html) or the GitHub releases page.
+2. Right-click the ZIP and choose **Extract All**. Running it from inside the ZIP does not work.
+3. Open the extracted folder and run **Surface3D.exe**. The first start can take a moment.
+4. Keep everything in that folder together: `assets`, `shaders`, `shader-cache`, `library` and the DLLs.
 
-1. Create a project and import your model. Choose the texture set resolution (1K, 2K or 4K).
-2. Open the **Bake** workspace and bake mesh maps: normal, ambient occlusion, curvature, world-space normal and position. Smart masks and teach masks read these.
-3. Back in **Paint**, add a **fill layer** for the base material. Use "Use a material" to search the library or drop a material from Assets.
-4. Add details: paint layers, masks, edge damage, weathering or a taught mask.
-5. Check the result in **Rendering** under an HDRI.
-6. Click **Export…** in the top bar and write your texture set.
+## Install on Linux (beta)
 
-## Next
+1. Download the **AppImage**.
+2. Make it runnable: `chmod +x Surface3D-*.AppImage`
+3. Run it. It needs a working Vulkan driver.
 
-- [Workspaces](guide-workspaces.md)
-- [Layers and masks](guide-layers-and-masks.md)
-- [Weathering and teach mode](guide-teach-mode.md)
-- [Keyboard shortcuts](guide-shortcuts.md)
+## Updates
 
-## Good habits
+**File > Check for updates** looks for a newer version on GitHub and installs it into the same folder. Projects from older versions open normally; a project saved in a newer version may not open in an older one.
 
-- This is a development preview: keep backups of important projects.
-- Projects saved by newer versions may not open in older ones.
-- Press **Ctrl+K** to find any command and its shortcut.
+## Your first look
+
+When Surface3D opens you see a material ball in a neutral studio, ready to paint.
+
+- **Middle:** the viewport, where you paint on the model.
+- **Right:** **Layers** with **Properties** below it. Properties always shows the settings of what you clicked last.
+- **Left:** **Assets**: materials, smart tools, textures, HDRIs and models.
+- **Top bar:** the workspaces (Paint, Bake, UV, Rendering, Graph) and **Export**.
+- **Bottom:** the status bar shows the keys and mouse buttons that work right now.
+
+> Lost? Press **Ctrl+K** and type what you want to do. Every command is listed with its shortcut.
+
+## Next steps
+
+1. [Your first texture](guide-first-texture.md): a 10-minute walkthrough.
+2. [Moving around](guide-navigation.md): orbit, pan and zoom.
+3. [Layers and sub-layers](guide-layers-and-masks.md): how a material is built.

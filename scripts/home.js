@@ -40,48 +40,48 @@
   }
 
   // ---------- graphs ----------
+  // Real nodes from the app (names, sockets and families as Surface3D 0.94 has them).
   var GE = {
     nodes: [
-      { id: 'img', t: 'Gold · ambientCG', f: 'inputs', x: 24, y: 172, w: 176, d: 0, rows: [['sw', 'linear-gradient(135deg,#f7d58a,#b9832b 45%,#5d3d10)'], ['o', 'Color', 'color', 'c']] },
-      { id: 'map', t: 'Mapping', f: 'coords', x: 24, y: 24, w: 176, d: .05, rows: [['f', 'Scale', .4, '2.0'], ['f', 'Rotation', .25, '45°'], ['o', 'Vector', 'vector', 'v']] },
-      { id: 'cv', t: 'Curvature', f: 'normals', x: 24, y: 316, w: 176, d: .1, rows: [['f', 'Radius', .55, '2.0'], ['o', 'Edges', 'value', 'e']] },
-      { id: 'tm', t: 'Teach Mask', f: 'masks', x: 24, y: 436, w: 176, d: .15, rows: [['f', 'Strokes', .3, '6'], ['o', 'Mask', 'value', 'm']] },
-      { id: 'ts', t: 'Tile Sampler', f: 'scatter', x: 262, y: 92, w: 164, d: .2, rows: [['i', 'Vector', 'vector', 'v'], ['f', 'Count', .5, '24'], ['f', 'Jitter', .35, '0.35'], ['o', 'Height', 'value', 'h']] },
-      { id: 'lv', t: 'Levels', f: 'filters', x: 262, y: 330, w: 164, d: .25, rows: [['i', 'Value', 'value', 'v'], ['f', 'High', .72, '0.72'], ['o', 'Value', 'value', 'o']] },
-      { id: 'gn', t: 'Grunge Noise', f: 'patterns', x: 262, y: 466, w: 164, d: .3, rows: [['f', 'Scale', .45, '12.0'], ['o', 'Value', 'value', 'o']] },
-      { id: 'hn', t: 'Height to Normal', f: 'normals', x: 492, y: 64, w: 164, d: .35, rows: [['i', 'Height', 'value', 'h'], ['f', 'Strength', .6, '1.5'], ['o', 'Normal', 'normal', 'n']] },
-      { id: 'bl', t: 'Blend', f: 'color', x: 492, y: 278, w: 164, d: .4, rows: [['i', 'A', 'color', 'a'], ['i', 'B', 'color', 'b'], ['i', 'Mask', 'value', 'm'], ['f', 'Mode', 1, 'Multiply'], ['o', 'Color', 'color', 'o']] },
-      { id: 'sb', t: 'Slope Blur', f: 'filters', x: 492, y: 470, w: 164, d: .45, rows: [['i', 'Value', 'value', 'v'], ['f', 'Samples', .4, '16'], ['o', 'Value', 'value', 'o']] },
-      { id: 'mx', t: 'Mix Colors', f: 'color', x: 714, y: 248, w: 150, d: .5, rows: [['i', 'A', 'color', 'a'], ['i', 'Mask', 'value', 'm'], ['o', 'Color', 'color', 'o']] },
-      { id: 'out', t: 'Material Output', f: 'outputs', x: 914, y: 40, w: 226, d: .55, rows: [['i', 'Base color', 'color', 'b'], ['i', 'Roughness', 'value', 'r'], ['i', 'Metallic', 'value', 'm', '1.00'], ['i', 'Normal', 'normal', 'n'], ['pv']] }
+      { id: 'map', t: 'Mapping', f: 'coords', x: 24, y: 24, w: 176, d: 0, rows: [['f', 'Scale', .4, '2.0'], ['f', 'Rotation Z', .25, '45'], ['o', 'Result', 'vector', 'v']] },
+      { id: 'img', t: 'Gold · ambientCG', f: 'inputs', x: 24, y: 172, w: 176, d: .05, rows: [['sw', 'linear-gradient(135deg,#f7d58a,#b9832b 45%,#5d3d10)'], ['o', 'Result', 'color', 'c']] },
+      { id: 'cv', t: 'Curvature', f: 'normals', x: 24, y: 310, w: 176, d: .1, rows: [['f', 'Intensity', .4, '1.6'], ['o', 'Curvature', 'value', 'e']] },
+      { id: 'vor', t: 'Voronoi', f: 'patterns', x: 24, y: 432, w: 176, d: .15, rows: [['f', 'Tiles', .3, '12'], ['o', 'Result', 'value', 'o']] },
+      { id: 'gn', t: 'Grunge Noise', f: 'patterns', x: 262, y: 60, w: 164, d: .2, rows: [['i', 'Coordinates', 'vector', 'c'], ['f', 'Scale', .45, '8'], ['f', 'Contrast', .6, '0.6'], ['o', 'Result', 'value', 'o']] },
+      { id: 'lv', t: 'Levels', f: 'filters', x: 262, y: 300, w: 164, d: .25, rows: [['i', 'Image / value', 'value', 'v'], ['f', 'Input black', .3, '0.30'], ['f', 'Input white', .72, '0.72'], ['o', 'Result', 'value', 'o']] },
+      { id: 'hn', t: 'Height to Normal', f: 'filters', x: 492, y: 40, w: 164, d: .3, rows: [['i', 'Height', 'value', 'h'], ['f', 'Strength', .6, '1.5'], ['o', 'Result', 'normal', 'n']] },
+      { id: 'bl', t: 'Blend', f: 'color', x: 492, y: 210, w: 164, d: .35, rows: [['i', 'Background', 'color', 'a'], ['i', 'Foreground', 'color', 'b'], ['i', 'Opacity', 'value', 'm'], ['f', 'Mode', 1, 'Multiply'], ['o', 'Result', 'color', 'o']] },
+      { id: 'sb', t: 'Slope Blur', f: 'filters', x: 492, y: 420, w: 164, d: .4, rows: [['i', 'A', 'value', 'a'], ['i', 'B', 'value', 'b'], ['f', 'Samples', .4, '16'], ['o', 'Result', 'value', 'o']] },
+      { id: 'out', t: 'Material Output', f: 'outputs', x: 914, y: 40, w: 226, d: .45, rows: [['i', 'Base color', 'color', 'b'], ['i', 'Roughness', 'value', 'r'], ['i', 'Metallic', 'value', 'm', '1.00'], ['i', 'Normal', 'normal', 'n'], ['pv']] }
     ],
-    wires: [['map.v', 'ts.v'], ['ts.h', 'hn.h'], ['hn.n', 'out.n'], ['img.c', 'bl.a'], ['cv.e', 'lv.v'], ['lv.o', 'bl.m'], ['gn.o', 'sb.v'], ['sb.o', 'out.r'], ['bl.o', 'mx.a'], ['tm.m', 'mx.m'], ['mx.o', 'out.b']],
+    wires: [['map.v', 'gn.c'], ['gn.o', 'hn.h'], ['cv.e', 'lv.v'], ['img.c', 'bl.a'], ['lv.o', 'bl.m'], ['vor.o', 'sb.a'], ['gn.o', 'sb.b'], ['hn.n', 'out.n'], ['bl.o', 'out.b'], ['sb.o', 'out.r']],
     extra: '<picture class="ge-ball" data-par="-0.04"><source type="image/webp" srcset="' + BALL('acg-metal007', 'lg') + '.webp"><img src="' + BALL('acg-metal007', 'lg') + '.png" alt="" width="1058" height="1200" loading="lazy" decoding="async"></picture>'
   };
+  // Mask graphs read the layer's own (taught or painted) mask through Layer mask and end in Mask Output.
   var LAYER_GRAPHS = {
     moss: { title: 'Moss · mask graph', nodes: [
-      { id: 'tm', t: 'Teach Mask', f: 'masks', x: 12, y: 14, w: 150, d: 0, rows: [['f', 'Strokes', .3, '6'], ['o', 'Mask', 'value', 'm']] },
-      { id: 'cv', t: 'Curvature', f: 'normals', x: 12, y: 122, w: 150, d: .08, rows: [['f', 'Radius', .55, '2.0'], ['o', 'Edges', 'value', 'e']] },
-      { id: 'gn', t: 'Grunge Noise', f: 'patterns', x: 12, y: 232, w: 150, d: .16, rows: [['f', 'Scale', .4, '8.0'], ['o', 'Value', 'value', 'o']] },
-      { id: 'lv', t: 'Levels', f: 'filters', x: 180, y: 122, w: 136, d: .24, rows: [['i', 'Value', 'value', 'v'], ['f', 'High', .72, '0.72'], ['o', 'Value', 'value', 'o']] },
-      { id: 'bl', t: 'Blend', f: 'color', x: 336, y: 206, w: 120, d: .32, rows: [['i', 'A', 'value', 'a'], ['i', 'B', 'value', 'b'], ['o', 'Value', 'value', 'o']] },
-      { id: 'lm', t: 'Layer Mask', f: 'outputs', x: 476, y: 40, w: 156, d: .4, rows: [['i', 'Moss', 'value', 'a'], ['i', 'Edges', 'value', 'b'], ['f', 'Blend', 0, 'Max'], ['mpv', 'assets/img/masks/moss.png']] }],
-      wires: [['tm.m', 'lm.a', .15], ['cv.e', 'lv.v', .25], ['lv.o', 'bl.a', .45], ['gn.o', 'bl.b', .4], ['bl.o', 'lm.b', .65]] },
+      { id: 'lm', t: 'Layer mask', f: 'inputs', x: 12, y: 14, w: 150, d: 0, rows: [['o', 'Result', 'value', 'o']] },
+      { id: 'cv', t: 'Curvature', f: 'normals', x: 12, y: 92, w: 150, d: .08, rows: [['f', 'Intensity', .4, '1.6'], ['o', 'Concavity', 'value', 'e']] },
+      { id: 'gn', t: 'Grunge Noise', f: 'patterns', x: 12, y: 206, w: 150, d: .16, rows: [['f', 'Scale', .4, '8'], ['o', 'Result', 'value', 'o']] },
+      { id: 'lv', t: 'Levels', f: 'filters', x: 180, y: 92, w: 136, d: .24, rows: [['i', 'Image / value', 'value', 'v'], ['f', 'Input white', .72, '0.72'], ['o', 'Result', 'value', 'o']] },
+      { id: 'bl', t: 'Blend', f: 'color', x: 336, y: 120, w: 124, d: .32, rows: [['i', 'Background', 'value', 'a'], ['i', 'Foreground', 'value', 'b'], ['i', 'Opacity', 'value', 'c'], ['o', 'Result', 'value', 'o']] },
+      { id: 'mo', t: 'Mask Output', f: 'outputs', x: 480, y: 40, w: 152, d: .4, rows: [['i', 'A', 'value', 'a'], ['mpv', 'assets/img/masks/moss.png']] }],
+      wires: [['lm.o', 'bl.a', .15], ['cv.e', 'lv.v', .25], ['lv.o', 'bl.b', .45], ['gn.o', 'bl.c', .4], ['bl.o', 'mo.a', .6]] },
     edges: { title: 'Edge wear · mask graph', nodes: [
-      { id: 'cv', t: 'Curvature', f: 'normals', x: 12, y: 30, w: 150, d: 0, rows: [['f', 'Radius', .3, '1.0'], ['o', 'Edges', 'value', 'e']] },
-      { id: 'bv', t: 'Bevel', f: 'masks', x: 12, y: 150, w: 150, d: .08, rows: [['f', 'Width', .5, '0.50'], ['o', 'Mask', 'value', 'm']] },
-      { id: 'gn', t: 'Grunge Noise', f: 'patterns', x: 12, y: 254, w: 150, d: .16, rows: [['f', 'Scale', .6, '16.0'], ['o', 'Value', 'value', 'o']] },
-      { id: 'bl', t: 'Blend', f: 'color', x: 186, y: 80, w: 130, d: .24, rows: [['i', 'A', 'value', 'a'], ['i', 'B', 'value', 'b'], ['o', 'Value', 'value', 'o']] },
-      { id: 'lv', t: 'Levels', f: 'filters', x: 336, y: 150, w: 124, d: .32, rows: [['i', 'Value', 'value', 'v'], ['i', 'Breakup', 'value', 'g'], ['o', 'Value', 'value', 'o']] },
-      { id: 'lm', t: 'Layer Mask', f: 'outputs', x: 480, y: 40, w: 152, d: .4, rows: [['i', 'Edges', 'value', 'a'], ['f', 'Blend', 0, 'Screen'], ['mpv', 'assets/img/masks/edges.png']] }],
-      wires: [['cv.e', 'bl.a', .2], ['bv.m', 'bl.b', .3], ['bl.o', 'lv.v', .45], ['gn.o', 'lv.g', .4], ['lv.o', 'lm.a', .6]] },
+      { id: 'cv', t: 'Curvature', f: 'normals', x: 12, y: 30, w: 150, d: 0, rows: [['f', 'Intensity', .3, '1.2'], ['o', 'Convexity', 'value', 'e']] },
+      { id: 'lm', t: 'Layer mask', f: 'inputs', x: 12, y: 150, w: 150, d: .08, rows: [['o', 'Result', 'value', 'o']] },
+      { id: 'gn', t: 'Grunge Noise', f: 'patterns', x: 12, y: 232, w: 150, d: .16, rows: [['f', 'Scale', .6, '16'], ['o', 'Result', 'value', 'o']] },
+      { id: 'bv', t: 'Bevel', f: 'masks', x: 186, y: 150, w: 130, d: .24, rows: [['i', 'Mask', 'value', 'm'], ['o', 'Result', 'value', 'o']] },
+      { id: 'bl', t: 'Blend', f: 'color', x: 336, y: 100, w: 124, d: .32, rows: [['i', 'Background', 'value', 'a'], ['i', 'Foreground', 'value', 'b'], ['i', 'Opacity', 'value', 'c'], ['o', 'Result', 'value', 'o']] },
+      { id: 'mo', t: 'Mask Output', f: 'outputs', x: 480, y: 40, w: 152, d: .4, rows: [['i', 'A', 'value', 'a'], ['mpv', 'assets/img/masks/edges.png']] }],
+      wires: [['cv.e', 'bl.a', .2], ['lm.o', 'bv.m', .3], ['bv.o', 'bl.b', .45], ['gn.o', 'bl.c', .4], ['bl.o', 'mo.a', .6]] },
     drips: { title: 'Rust drips · mask graph', nodes: [
-      { id: 'gn', t: 'Grunge Noise', f: 'patterns', x: 12, y: 24, w: 150, d: 0, rows: [['f', 'Scale', .3, '4.0'], ['o', 'Value', 'value', 'o']] },
-      { id: 'tm', t: 'Teach Mask', f: 'masks', x: 12, y: 150, w: 150, d: .08, rows: [['f', 'Strokes', .5, '9'], ['o', 'Mask', 'value', 'm']] },
-      { id: 'sb', t: 'Slope Blur', f: 'filters', x: 190, y: 40, w: 136, d: .16, rows: [['i', 'Value', 'value', 'v'], ['f', 'Samples', .4, '16'], ['o', 'Value', 'value', 'o']] },
-      { id: 'bl', t: 'Blend', f: 'color', x: 336, y: 170, w: 124, d: .24, rows: [['i', 'A', 'value', 'a'], ['i', 'Mask', 'value', 'b'], ['o', 'Value', 'value', 'o']] },
-      { id: 'lm', t: 'Layer Mask', f: 'outputs', x: 480, y: 40, w: 152, d: .32, rows: [['i', 'Drips', 'value', 'a'], ['f', 'Blend', 0, 'Multiply'], ['mpv', 'assets/img/masks/drips.png']] }],
-      wires: [['gn.o', 'sb.v', .2], ['sb.o', 'bl.a', .35], ['tm.m', 'bl.b', .4], ['bl.o', 'lm.a', .55]] }
+      { id: 'gn', t: 'Grunge Noise', f: 'patterns', x: 12, y: 24, w: 150, d: 0, rows: [['f', 'Scale', .3, '4'], ['o', 'Result', 'value', 'o']] },
+      { id: 'lm', t: 'Layer mask', f: 'inputs', x: 12, y: 150, w: 150, d: .08, rows: [['o', 'Result', 'value', 'o']] },
+      { id: 'sb', t: 'Slope Blur', f: 'filters', x: 190, y: 40, w: 136, d: .16, rows: [['i', 'A', 'value', 'a'], ['i', 'B', 'value', 'b'], ['f', 'Samples', .4, '16'], ['o', 'Result', 'value', 'o']] },
+      { id: 'lv', t: 'Levels', f: 'filters', x: 336, y: 150, w: 124, d: .24, rows: [['i', 'Image / value', 'value', 'v'], ['f', 'Gamma', .5, '1.2'], ['o', 'Result', 'value', 'o']] },
+      { id: 'mo', t: 'Mask Output', f: 'outputs', x: 480, y: 40, w: 152, d: .32, rows: [['i', 'A', 'value', 'a'], ['mpv', 'assets/img/masks/drips.png']] }],
+      wires: [['gn.o', 'sb.a', .2], ['lm.o', 'sb.b', .3], ['sb.o', 'lv.v', .45], ['lv.o', 'mo.a', .55]] }
   };
 
   // ---------- material wall ----------
@@ -120,6 +120,7 @@
   var ge = $('#ge-canvas');
   if (ge) {
     renderGraph(ge, GE);
+    $$('.ge-n').forEach(function (e) { e.textContent = GE.nodes.length; });
     var used = {};
     GE.nodes.forEach(function (n) { used[n.f] = (used[n.f] || 0) + 1; });
     $('.ge-fam').innerHTML = Object.keys(FAM).map(function (k) {
@@ -218,12 +219,19 @@
     if (field) scrub(field, e);
   });
   function scrub(f, e) {
-    var span = $('span', f), bar = $('b', f), txt = span.textContent.trim();
-    var num = parseFloat(txt); if (!f.dataset.max && !(num > 0)) return; // labels like "Max" or "Overlay" stay put
-    var dec = f.dataset.dec !== undefined ? +f.dataset.dec : ((txt.split('.')[1] || '').replace(/\D/g, '').length);
-    var unit = f.dataset.unit !== undefined ? f.dataset.unit : txt.replace(/^[-\d.]+/, '');
-    var fill = parseFloat(bar.style.width) / 100 || .001;
-    var max = f.dataset.max ? +f.dataset.max : (num / fill || 1), min = +(f.dataset.min || 0);
+    var span = $('span', f), bar = $('b', f);
+    // The first touch works out the field's range from its starting value and keeps it on the element,
+    // so a value dragged down to 0 can always be dragged back up.
+    if (!f.dataset.max) {
+      var txt = span.textContent.trim(), num = parseFloat(txt), fill0 = parseFloat(bar.style.width) / 100;
+      if (!(num > 0) || !(fill0 > 0)) return; // labels like "Max" or "Overlay" stay put
+      f.dataset.max = num / fill0; f.dataset.min = 0;
+      f.dataset.dec = (txt.split('.')[1] || '').replace(/\D/g, '').length;
+      f.dataset.unit = txt.replace(/^[-\d.]+/, '');
+    }
+    var dec = +f.dataset.dec || 0, unit = f.dataset.unit || '';
+    var fill = (parseFloat(bar.style.width) || 0) / 100;
+    var max = +f.dataset.max, min = +(f.dataset.min || 0);
     var r = f.getBoundingClientRect(), startX = e.clientX, startFill = fill, active = false;
     f.setPointerCapture(e.pointerId);
     var set = function (v) {
@@ -639,18 +647,18 @@
   // ---------- scroll ----------
   var layers = $('.h-layers'), steps = $$('.h-steps li'), lp = $('.h-lp');
   var lib = $('.h-lib'), band = $('.h-band'), bar = $('.h-progress');
-  var lastStep = -1, ticking = false;
-  function sectionP(el, sticky) {
-    var r = el.getBoundingClientRect(), vh = innerHeight;
-    if (sticky && getComputedStyle(el.firstElementChild).position === 'sticky') return clamp(-r.top / Math.max(1, r.height - vh));
-    return clamp((vh * .78 - r.top) / Math.max(1, r.height * .8));
+  var lastStep = -1, ticking = false, parEls = $$('[data-par]');
+  // How far a section has travelled up through the screen, 0..1. Nothing is pinned, so scrolling never stalls.
+  function sectionP(el) {
+    var r = el.getBoundingClientRect();
+    return clamp((innerHeight * .8 - r.top) / Math.max(1, r.height * .75));
   }
   function frame() {
     ticking = false;
     var vh = innerHeight, doc = root.scrollHeight - vh;
     if (bar) bar.style.setProperty('--sp', doc > 0 ? (scrollY / doc).toFixed(4) : 0);
     if (layers && !reduce) {
-      var p = sectionP(layers, true), r = layers.getBoundingClientRect();
+      var p = sectionP(layers), r = layers.getBoundingClientRect();
       if (r.top < vh * .8) lp.classList.add('is-in');
       var st = p < .06 ? 0 : p < .18 ? 1 : p < .36 ? 2 : 3;
       if (userOpened) st = Math.max(st, 2);
@@ -667,7 +675,7 @@
         if (!s) return; var lr = s.getBoundingClientRect();
         if (lr.bottom > 0 && lr.top < vh) s.style.setProperty('--p', clamp((vh - lr.top) / (lr.height + vh)).toFixed(4));
       });
-      $$('[data-par]').forEach(function (el) {
+      parEls.forEach(function (el) {
         var r = el.parentNode.getBoundingClientRect();
         if (r.bottom < -200 || r.top > vh + 200) return;
         el.style.transform = 'translate3d(0,' + ((r.top + r.height / 2 - vh / 2) * +el.dataset.par).toFixed(1) + 'px,0)';
